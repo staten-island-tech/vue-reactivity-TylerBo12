@@ -2,8 +2,8 @@
 export default {
   data() {
     return {
-      text: `Trooooll `,
-      hehe: `trolling`,
+      text: `Hey you, yes you, have a bad day. :(`,
+      fontColor: `color`,
       count: 0,
     };
   },
@@ -16,22 +16,21 @@ export default {
 </script>
 
 <template>
-  <h1 v-bind:class="hehe">{{ text }}</h1>
+  <h1 v-bind:class="fontColor">{{ text }}</h1>
   <h1>
-    <button @click="decrement">`Click This`</button>
+    <button @click="decrement">Amount of friends you have: {{ count }}</button>
   </h1>
 </template>
 
 <style scoped>
 h1 {
   font-size: 5rem;
+  width: 50rem;
+  height: 8rem;
   color: green;
 }
 
-button {
-}
-
-.trolling {
+.color {
   color: red;
 }
 </style>
