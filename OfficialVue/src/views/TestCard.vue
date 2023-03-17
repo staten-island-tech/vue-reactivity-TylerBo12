@@ -1,15 +1,26 @@
 <script>
 export default {
-  array: [{ name: "anteater", foods: "ant", status: "predator" }],
+  data() {
+    return {
+      array: [
+        { name: "anteater", foods: "ant", status: "predator" },
+        { name: "arctic bear", foods: "feesh", status: "predator" },
+      ],
+    };
+  },
 };
 </script>
 
 <template>
-  <p v-for="animals in array" class="Pain">{{ animals.text }}</p>
+  <div v-for="animals in array" :key="animals.name" class="Pain">
+    {{ animals.name }}
+  </div>
+  <h1>Henlo</h1>
 </template>
 
 <style scoped>
 .Pain {
   font-size: 10rem;
+  background-color: aqua;
 }
 </style>
