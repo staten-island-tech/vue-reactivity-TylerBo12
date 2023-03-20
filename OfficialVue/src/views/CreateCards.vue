@@ -1,6 +1,7 @@
 <script>
+import CssVariables from "./CssVariables.vue";
 export default {
-  components: {},
+  components: { CssVariables },
   data() {
     return {
       array: [
@@ -245,10 +246,16 @@ export default {
   background-color: var(--siteBacco);
 }
 .animals {
+  display: flex;
+  justify-content: center;
+  /* --------------------------- */
+
   font-size: 5rem;
   margin: 3rem 3rem 3rem 3rem;
   border-radius: 1rem;
+  /* --------------------------- */
   border: solid var(--cardBorder) 0.5rem;
+  color: black;
   background-color: var(--cardColor);
 }
 </style>
