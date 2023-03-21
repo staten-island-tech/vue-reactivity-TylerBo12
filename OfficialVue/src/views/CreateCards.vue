@@ -236,13 +236,29 @@ export default {
 </script>
 
 <template>
-  <div v-for="animals in array" :key="animals" class="parent">
-    <h2 class="animals">{{ animals }}</h2>
+  <div class="container">
+    <div v-for="animals in array" :key="animals" class="child">
+      <sub class="animals">{{ animals }} </sub>
+      <button>Click Me</button>
+    </div>
   </div>
 </template>
 
 <style scoped>
-.parent {
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.child {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* --------------------------- */
+  margin: 1rem;
+  width: 10rem;
+  border-radius: 1rem;
   background-color: var(--siteBacco);
 }
 .animals {
@@ -251,11 +267,15 @@ export default {
   /* --------------------------- */
 
   font-size: 5rem;
-  margin: 3rem 3rem 3rem 3rem;
+  margin: 2rem;
+  width: 30rem;
   border-radius: 1rem;
   /* --------------------------- */
   border: solid var(--cardBorder) 0.5rem;
   color: black;
   background-color: var(--cardColor);
+}
+button {
+  font-size: 2rem;
 }
 </style>
