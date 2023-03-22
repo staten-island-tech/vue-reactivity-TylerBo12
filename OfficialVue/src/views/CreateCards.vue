@@ -249,6 +249,10 @@ export default {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+
+  /* --------------------------- */
+
+  width: 150rem;
 }
 .child {
   display: flex;
@@ -256,8 +260,9 @@ export default {
   justify-content: center;
   align-items: center;
   /* --------------------------- */
-  margin: 1rem;
-  width: 10rem;
+  margin-right: 10rem;
+  margin-top: 2rem;
+  width: 32rem;
   border-radius: 1rem;
   background-color: var(--siteBacco);
 }

@@ -22,4 +22,8 @@ body {
   --siteBacco: #df8919;
   --altsiteBacco: #431a54;
 }
+
+body {
+  background-color: var(--altsiteBacco);
+}
 </style>
