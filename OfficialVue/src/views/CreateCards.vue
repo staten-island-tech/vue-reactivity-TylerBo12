@@ -4,7 +4,7 @@ export default {
   components: { CssVariables },
   data() {
     return {
-      array: [
+      animalArray: [
         "Aardvark",
         "Albatross",
         "Alligator",
@@ -232,12 +232,20 @@ export default {
       ],
     };
   },
+  methods: {
+    push: function () {
+      animalArray.forEach((animal) => {
+        animalArray.push("name:", "animal");
+        console.log(animalArray);
+      });
+    },
+  },
 };
 </script>
 
 <template>
   <div class="container">
-    <div v-for="animals in array" :key="animals" class="child">
+    <div v-for="animals in animalArray" :key="animals" class="child">
       <sub class="animals">{{ animals }} </sub>
       <button>Click Me</button>
     </div>
