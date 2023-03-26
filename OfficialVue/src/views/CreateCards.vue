@@ -1,4 +1,5 @@
 <script>
+import { ref } from "vue";
 import CssVariables from "./CssVariables.vue";
 export default {
   components: { CssVariables },
@@ -230,11 +231,16 @@ export default {
         "Yak",
         "Zebra",
       ],
+      cart: [],
     };
   },
   methods: {
-    push: function () {
-      animalArray.forEach((animal) => {
+    push: function (item) {
+      this.cart.push(item);
+      console.log(this.cart);
+    },
+    displayCart: function () {
+      this.cart.forEach((animal) => {
         console.log(animal);
       });
     },
@@ -243,24 +249,51 @@ export default {
 </script>
 
 <template>
-  <div class="container">
+  <h1>Adoption Shelter</h1>
+  <div>
+    <button class="shoppingCartBtn" @click="displayCart()">
+      <img
+        class="shoppingCartBtn"
+        src="https://www.models-resource.com/resources/big_icons/49/48807.png?updated=1666220257"
+        alt="Img of Nintedo E shop bag as a shopping cart"
+      />
+    </button>
+    <sub class="cartDisplay" v-for="items in cart" :key="items">{{
+      items
+    }}</sub>
+  </div>
+  <!-- --------------------------- -->
+  <div id="container">
     <div v-for="animals in animalArray" :key="animals" class="child">
-      <sub class="animals">{{ animals }} </sub>
-      <button @click="push()">Click Me</button>
+      <span class="animals">{{ animals }} </span>
+      <button @click="push(animals)">Add to Cart</button>
     </div>
   </div>
 </template>
 
 <style scoped>
-.container {
+h1 {
+  font-size: 10rem;
+}
+.shoppingCartBtn {
+  width: 20rem;
+  height: 20rem;
+}
+
+.cartDisplay {
+  display: flex;
+  flex-direction: row;
+  font-size: 5rem;
+}
+
+#container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-
   /* --------------------------- */
-
   width: 150rem;
 }
+
 .child {
   display: flex;
   flex-direction: column;
@@ -273,6 +306,7 @@ export default {
   border-radius: 1rem;
   background-color: var(--siteBacco);
 }
+
 .animals {
   display: flex;
   justify-content: center;
@@ -284,8 +318,8 @@ export default {
   border-radius: 1rem;
   /* --------------------------- */
   border: solid var(--cardBorder) 0.5rem;
-  color: black;
   background-color: var(--cardColor);
+  color: black;
 }
 button {
   font-size: 2rem;
