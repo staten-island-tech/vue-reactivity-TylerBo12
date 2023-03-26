@@ -235,8 +235,7 @@ export default {
   methods: {
     push: function () {
       animalArray.forEach((animal) => {
-        animalArray.push("name:", "animal");
-        console.log(animalArray);
+        console.log(animal);
       });
     },
   },
@@ -247,7 +246,7 @@ export default {
   <div class="container">
     <div v-for="animals in animalArray" :key="animals" class="child">
       <sub class="animals">{{ animals }} </sub>
-      <button>Click Me</button>
+      <button @click="push()">Click Me</button>
     </div>
   </div>
 </template>
