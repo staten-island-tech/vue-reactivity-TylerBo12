@@ -240,9 +240,10 @@ export default {
       this.cart.push(items);
       console.log(this.cart);
     },
-    pushTest: function () {},
+    display: function () {
+      console.log(this.cart);
+    },
     removeItems: function (items) {
-      /* this.cart.splice(items, position); */
       this.cart = this.cart.filter((t) => t !== items);
     },
   },
@@ -250,31 +251,30 @@ export default {
 </script>
 
 <template>
-  <h1>Adoption Shelter</h1>
-  <div>
-    <button class="shoppingCartBtn" @click="pushTest()">
-      <img
-        class="shoppingCartBtn"
-        src="https://www.models-resource.com/resources/big_icons/49/48807.png?updated=1666220257"
-        alt="Img of Nintedo E shop bag as a shopping cart"
-      />
-    </button>
-    <sub class="cartDisplay" v-for="items in cart" :key="items"
-      ><button class="removeItems" @click="removeItems(items)">
-        Remove Item</button
-      >{{ items.name }} {{ items.price }}</sub
-    >
-  </div>
-  <!-- --------------------------- -->
-  <div id="container">
-    <div v-for="animals in animalArray" :key="animals" class="child">
-      <span class="animals">{{ animals.name }} {{ animals.price }}</span>
-      <button @click="push(animals)">Add to Cart</button>
+  <div id="parent">
+    <div>
+      <sub>
+        <button class="shoppingCartBtn" @click="display()">
+          <img
+            class="shoppingCartBtn"
+            src="https://www.models-resource.com/resources/big_icons/49/48807.png?updated=1666220257"
+            alt="Img of Nintedo E shop bag as a shopping cart"
+          />
+        </button>
+      </sub>
+      <sub class="cartDisplay" v-for="items in cart" :key="items"
+        ><button class="removeItems" @click="removeItems(items)">
+          Remove Item</button
+        >{{ items.name }} {{ items.price }}</sub
+      >
     </div>
-  </div>
-  <!-- --------------------------- -->
-  <div>
-    <div v-for="animals in animalArray" :key="animals"></div>
+    <!-- --------------------------- -->
+    <div id="container">
+      <sub v-for="animals in animalArray" :key="animals" class="child">
+        <span class="animals">{{ animals.name }} {{ animals.price }}</span>
+        <button @click="push(animals)">Add to Cart</button>
+      </sub>
+    </div>
   </div>
 </template>
 
@@ -282,9 +282,13 @@ export default {
 h1 {
   font-size: 10rem;
 }
+
+#parent {
+}
 .shoppingCartBtn {
   width: 20rem;
   height: 20rem;
+  margin-right: 10rem;
 }
 
 .cartDisplay {
@@ -293,6 +297,8 @@ h1 {
   /* --------------------------- */
   font-size: 4rem;
   margin-right: 1rem;
+  /*  --------------------------- */
+  color: aliceblue;
 }
 
 .removeItems {
