@@ -6,19 +6,18 @@ export default {
   data() {
     return {
       animalArray: [
-        "Aardvark",
-        "Albatross",
-        "Alligator",
-        "Alpaca",
-        "Ant",
-        "Anteater",
-        "Antelope",
-        "Ape",
-        "Armadillo",
-        "Donkey",
-        "Baboon",
-        "Badger",
-        "Barracuda",
+        { name: "Aardvark", price: "$75" },
+        { name: "Albatross", price: "$35" },
+        { name: "Alligator", price: "$47" },
+        { name: "Alpaca", price: "$3" },
+        { name: "Ant", price: "$31" },
+        { name: "Anteater", price: "$16" },
+        { name: "Antelope", price: "$85" },
+        { name: "Ape", price: "$30" },
+        { name: "Armadillo", price: "$19" },
+        { name: "Baboon", price: "$24" },
+        { name: "Badger", price: "$120" },
+        { name: "Barracuda", price: "$8" },
         "Bat",
         "Bear",
         "Beaver",
@@ -56,6 +55,7 @@ export default {
         "Dog",
         "Dogfish",
         "Dolphin",
+        "Donkey",
         "Dotterel",
         "Dove",
         "Dragonfly",
@@ -232,17 +232,18 @@ export default {
         "Zebra",
       ],
       cart: [],
+      test: [],
     };
   },
   methods: {
-    push: function (item) {
-      this.cart.push(item);
+    push: function (items) {
+      this.cart.push(items);
       console.log(this.cart);
     },
-    displayCart: function () {
-      this.cart.forEach((animal) => {
-        console.log(animal);
-      });
+    pushTest: function () {},
+    removeItems: function (items) {
+      /* this.cart.splice(items, position); */
+      this.cart = this.cart.filter((t) => t !== items);
     },
   },
 };
@@ -251,23 +252,29 @@ export default {
 <template>
   <h1>Adoption Shelter</h1>
   <div>
-    <button class="shoppingCartBtn" @click="displayCart()">
+    <button class="shoppingCartBtn" @click="pushTest()">
       <img
         class="shoppingCartBtn"
         src="https://www.models-resource.com/resources/big_icons/49/48807.png?updated=1666220257"
         alt="Img of Nintedo E shop bag as a shopping cart"
       />
     </button>
-    <sub class="cartDisplay" v-for="items in cart" :key="items">{{
-      items
-    }}</sub>
+    <sub class="cartDisplay" v-for="items in cart" :key="items"
+      ><button class="removeItems" @click="removeItems(items)">
+        Remove Item</button
+      >{{ items.name }} {{ items.price }}</sub
+    >
   </div>
   <!-- --------------------------- -->
   <div id="container">
     <div v-for="animals in animalArray" :key="animals" class="child">
-      <span class="animals">{{ animals }} </span>
+      <span class="animals">{{ animals.name }} {{ animals.price }}</span>
       <button @click="push(animals)">Add to Cart</button>
     </div>
+  </div>
+  <!-- --------------------------- -->
+  <div>
+    <div v-for="animals in animalArray" :key="animals"></div>
   </div>
 </template>
 
@@ -283,7 +290,14 @@ h1 {
 .cartDisplay {
   display: flex;
   flex-direction: row;
-  font-size: 5rem;
+  /* --------------------------- */
+  font-size: 4rem;
+  margin-right: 1rem;
+}
+
+.removeItems {
+  width: 10rem;
+  margin-right: 1rem;
 }
 
 #container {
