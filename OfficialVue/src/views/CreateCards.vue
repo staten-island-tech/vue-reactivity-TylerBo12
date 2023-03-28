@@ -1,8 +1,9 @@
 <script>
 import { ref } from "vue";
 import CssVariables from "./CssVariables.vue";
+import cart from "./ShoppingCart.vue";
 export default {
-  components: { CssVariables },
+  components: { CssVariables, ShoppingCart },
   data() {
     return {
       animalArray: [
@@ -231,8 +232,6 @@ export default {
         "Yak",
         "Zebra",
       ],
-      cart: [],
-      test: [],
     };
   },
   methods: {
@@ -240,35 +239,12 @@ export default {
       this.cart.push(items);
       console.log(this.cart);
     },
-    display: function () {
-      console.log(this.cart);
-    },
-    removeItems: function (items) {
-      this.cart = this.cart.filter((t) => t !== items);
-    },
   },
 };
 </script>
 
 <template>
   <div id="parent">
-    <div>
-      <sub>
-        <button class="shoppingCartBtn" @click="display()">
-          <img
-            class="shoppingCartBtn"
-            src="https://www.models-resource.com/resources/big_icons/49/48807.png?updated=1666220257"
-            alt="Img of Nintedo E shop bag as a shopping cart"
-          />
-        </button>
-      </sub>
-      <sub class="cartDisplay" v-for="items in cart" :key="items"
-        ><button class="removeItems" @click="removeItems(items)">
-          Remove Item</button
-        >{{ items.name }} {{ items.price }}</sub
-      >
-    </div>
-    <!-- --------------------------- -->
     <div id="container">
       <sub v-for="animals in animalArray" :key="animals" class="child">
         <span class="animals">{{ animals.name }} {{ animals.price }}</span>
@@ -281,29 +257,6 @@ export default {
 <style scoped>
 h1 {
   font-size: 10rem;
-}
-
-#parent {
-}
-.shoppingCartBtn {
-  width: 20rem;
-  height: 20rem;
-  margin-right: 10rem;
-}
-
-.cartDisplay {
-  display: flex;
-  flex-direction: row;
-  /* --------------------------- */
-  font-size: 4rem;
-  margin-right: 1rem;
-  /*  --------------------------- */
-  color: aliceblue;
-}
-
-.removeItems {
-  width: 10rem;
-  margin-right: 1rem;
 }
 
 #container {
