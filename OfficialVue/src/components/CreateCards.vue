@@ -1,9 +1,9 @@
 <script>
-import { ref } from "vue";
-import CssVariables from "./CssVariables.vue";
-import cart from "./ShoppingCart.vue";
+import CssVariables from "../views/CssVariables.vue";
+/* import cart from "../views/ShoppingCart.vue"; */
 export default {
-  components: { CssVariables, ShoppingCart },
+  name: "create",
+  components: {},
   data() {
     return {
       animalArray: [
@@ -239,6 +239,9 @@ export default {
       this.cart.push(items);
       console.log(this.cart);
     },
+  },
+  props: {
+    animalArray: Array,
   },
 };
 </script>

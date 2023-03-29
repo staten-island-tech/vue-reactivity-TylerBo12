@@ -1,9 +1,9 @@
 <script>
 import CssVariables from "./CssVariables.vue";
-import CreateCards from "./CreateCards.vue";
-import ShoppingCart from "./ShoppingCart.vue";
+import cart from "./ShoppingCart.vue";
+import create from "../components/CreateCards.vue";
 export default {
-  components: { CssVariables, ShoppingCart, CreateCards },
+  components: { CssVariables, cart, create },
   data() {
     return {};
   },
@@ -13,8 +13,8 @@ export default {
 
 <template>
   <div id="parent">
-    <ShoppingCart />
-    <CreateCards />
+    <create />
+    <cart />
   </div>
 </template>
 

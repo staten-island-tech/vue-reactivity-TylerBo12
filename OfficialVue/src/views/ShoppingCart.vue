@@ -1,6 +1,10 @@
 <script>
-import CreateCards from "./CreateCards.vue";
+import create from "../components/CreateCards.vue";
 export default {
+  name: "cart",
+  components: {
+    create,
+  },
   data() {
     return {
       cart: [],
