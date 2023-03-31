@@ -233,7 +233,7 @@ export default {
         "Zebra",
       ],
       cart: [],
-      button: true,
+      inCart: true,
     };
   },
   methods: {
@@ -242,10 +242,11 @@ export default {
       console.log(this.cart);
     },
     display: function () {
-      this.cart === !this.cart;
+      this.inCart === !this.inCart;
     },
     removeItems: function (items) {
       this.cart = this.cart.filter((t) => t !== items);
+      console.log(items);
     },
   },
 };
@@ -253,26 +254,21 @@ export default {
 
 <template>
   <div id="parent">
-    <sub>
+    <sub id="shoppingCart">
       <button class="shoppingCartBtn" @click="display()">
         <img
           class="shoppingCartBtn"
           src="https://www.models-resource.com/resources/big_icons/49/48807.png?updated=1666220257"
           alt="Img of Nintedo E shop bag as a shopping cart"
         />
-        <div v-for="items in cart" :key="items">
-          {{ items.name }} {{ items.price }}
-        </div>
       </button>
     </sub>
-    <sub
-      class="cartDisplay"
-      v-for="items in cart"
-      :key="items"
-      v-if="cart === true"
-      ><button class="removeItems" @click="removeItems(items)">
-        Remove Item
-      </button></sub
+    <sub class="cartDisplay" v-for="items in cart" :key="items"
+      ><span v-if="inCart === true"
+        ><button class="removeItems" @click="removeItems(items)">
+          Remove Item</button
+        >{{ items.name }} {{ items.price }}</span
+      ></sub
     >
     <!-- --------------------------- -->
 
@@ -289,6 +285,10 @@ export default {
 <style scoped>
 h1 {
   font-size: 10rem;
+}
+
+#shoppingCart {
+  margin-right: 30rem;
 }
 
 .shoppingCartBtn {
