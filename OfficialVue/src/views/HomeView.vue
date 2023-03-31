@@ -270,6 +270,8 @@ export default {
       </button></sub
     >
     <!-- --------------------------- -->
+
+    <!-- We can use  @click wit an if statement with JS to make the shopping cart work :D-->
     <div id="container">
       <sub v-for="animals in animalArray" :key="animals" class="child">
         <span class="animals">{{ animals.name }} {{ animals.price }}</span>
