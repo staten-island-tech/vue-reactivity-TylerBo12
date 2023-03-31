@@ -1,6 +1,5 @@
 <script>
 import CssVariables from "../views/CssVariables.vue";
-/* import cart from "../views/ShoppingCart.vue"; */
 export default {
   name: "create",
   components: {},

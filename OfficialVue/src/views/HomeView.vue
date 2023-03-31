@@ -233,6 +233,7 @@ export default {
         "Zebra",
       ],
       cart: [],
+      button: true,
     };
   },
   methods: {
@@ -241,7 +242,7 @@ export default {
       console.log(this.cart);
     },
     display: function () {
-      console.log(this.cart);
+      this.cart === !this.cart;
     },
     removeItems: function (items) {
       this.cart = this.cart.filter((t) => t !== items);
@@ -264,7 +265,11 @@ export default {
         </div>
       </button>
     </sub>
-    <sub class="cartDisplay" v-for="items in cart" :key="items"
+    <sub
+      class="cartDisplay"
+      v-for="items in cart"
+      :key="items"
+      v-if="cart === true"
       ><button class="removeItems" @click="removeItems(items)">
         Remove Item
       </button></sub
