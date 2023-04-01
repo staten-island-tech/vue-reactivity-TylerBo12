@@ -233,7 +233,7 @@ export default {
         "Zebra",
       ],
       cart: [],
-      inCart: true,
+      inCart: false,
     };
   },
   methods: {
@@ -242,7 +242,7 @@ export default {
       console.log(this.cart);
     },
     display: function () {
-      this.inCart === !this.inCart;
+      this.inCart = !this.inCart;
     },
     removeItems: function (items) {
       this.cart = this.cart.filter((t) => t !== items);
@@ -255,6 +255,7 @@ export default {
 <template>
   <div id="parent">
     <sub id="shoppingCart">
+      <p class="itemCounter"># of items in Cart: {{ cart.length }}</p>
       <button class="shoppingCartBtn" @click="display()">
         <img
           class="shoppingCartBtn"
@@ -262,14 +263,15 @@ export default {
           alt="Img of Nintedo E shop bag as a shopping cart"
         />
       </button>
+
+      <sub class="cartDisplay" v-for="items in cart" :key="items"
+        ><span v-if="inCart === true"
+          ><button class="removeItems" @click="removeItems(items)">
+            Remove Item</button
+          >{{ items.name }} {{ items.price }}</span
+        ><span v-else-if="inCart === false"></span
+      ></sub>
     </sub>
-    <sub class="cartDisplay" v-for="items in cart" :key="items"
-      ><span v-if="inCart === true"
-        ><button class="removeItems" @click="removeItems(items)">
-          Remove Item</button
-        >{{ items.name }} {{ items.price }}</span
-      ></sub
-    >
     <!-- --------------------------- -->
 
     <!-- We can use  @click wit an if statement with JS to make the shopping cart work :D-->
@@ -284,11 +286,25 @@ export default {
 
 <style scoped>
 h1 {
-  font-size: 10rem;
+  font-size: 5rem;
+  color: aliceblue;
+}
+
+.itemCounter {
+  font-size: 5rem;
+  color: aliceblue;
+}
+
+#parent {
+  display: flex;
+  flex-direction: row;
 }
 
 #shoppingCart {
-  margin-right: 30rem;
+  display: flex;
+  flex-direction: column;
+  margin-right: 5rem;
+  margin-top: 2rem;
 }
 
 .shoppingCartBtn {
@@ -303,8 +319,9 @@ h1 {
   /* --------------------------- */
   font-size: 4rem;
   margin-right: 1rem;
+  margin-top: 2rem;
   /*  --------------------------- */
-  color: black;
+  color: aliceblue;
 }
 
 .removeItems {
@@ -317,7 +334,8 @@ h1 {
   flex-direction: row;
   flex-wrap: wrap;
   /* --------------------------- */
-  width: 150rem;
+  width: 130rem;
+  margin-top: 2rem;
 }
 
 .child {
@@ -328,7 +346,7 @@ h1 {
   /* --------------------------- */
   margin-right: 10rem;
   margin-top: 2rem;
-  width: 32rem;
+  width: 30rem;
   border-radius: 1rem;
   background-color: var(--siteBacco);
 }
@@ -338,9 +356,9 @@ h1 {
   justify-content: center;
   /* --------------------------- */
 
-  font-size: 5rem;
+  font-size: 4rem;
   margin: 2rem;
-  width: 30rem;
+  width: 25rem;
   border-radius: 1rem;
   /* --------------------------- */
   border: solid var(--cardBorder) 0.5rem;
