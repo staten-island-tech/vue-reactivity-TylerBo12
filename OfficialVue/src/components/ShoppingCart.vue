@@ -41,7 +41,7 @@ export default {
   margin-right: 1rem;
   margin-top: 2rem;
   /*  --------------------------- */
-  color: aliceblue;
+  color: black;
 }
 
 .removeItems {

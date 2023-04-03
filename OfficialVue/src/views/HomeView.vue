@@ -255,11 +255,13 @@ export default {
 
 <template>
   <div id="parent">
-    <cartButton :cart="cart.length" @click="display()" />
+    <sub>
+      <cartButton :cart="cart.length" @click="display()" />
+    </sub>
     <sub v-if="inCart === true">
       <cart
         v-for="items in cart"
-        :key="items"
+        :key="items.id"
         :name="items.name"
         :price="items.price"
         @click="removeItems(items)"
