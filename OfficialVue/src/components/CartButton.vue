@@ -12,10 +12,11 @@
 <script>
 export default {
   name: "cartButton",
+  props: {
+    cart: Number,
+  },
   data() {
-    return {
-      cart: [],
-    };
+    return {};
   },
 };
 </script>

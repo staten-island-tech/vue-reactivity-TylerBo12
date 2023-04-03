@@ -255,7 +255,7 @@ export default {
 
 <template>
   <div id="parent">
-    <cartButton @click="display()" />
+    <cartButton :cart="cart.length" @click="display()" />
     <sub v-if="inCart === true">
       <cart
         v-for="items in cart"
