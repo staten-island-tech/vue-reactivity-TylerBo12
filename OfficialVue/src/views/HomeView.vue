@@ -1,9 +1,10 @@
 <script>
 import CssVariables from "./CssVariables.vue";
-import ShoppingCart from "./ShoppingCart.vue";
-import CreateCards from "../components/CreateCards.vue";
+import cartButton from "../components/CartButton.vue";
+import cart from "../components/ShoppingCart.vue";
+import create from "../components/CreateCards.vue";
 export default {
-  components: { CssVariables, ShoppingCart, CreateCards },
+  components: { CssVariables, create, cart, cartButton },
   data() {
     return {
       animalArray: [
@@ -19,221 +20,221 @@ export default {
         { name: "Baboon", price: "$24" },
         { name: "Badger", price: "$120" },
         { name: "Barracuda", price: "$8" },
-        "Bat",
-        "Bear",
-        "Beaver",
-        "Bee",
-        "Bison",
-        "Boar",
-        "Buffalo",
-        "Butterfly",
-        "Camel",
-        "Capybara",
-        "Caribou",
-        "Cassowary",
-        "Cat",
-        "Caterpillar",
-        "Cattle",
-        "Chamois",
-        "Cheetah",
-        "Chicken",
-        "Chimpanzee",
-        "Chinchilla",
-        "Chough",
-        "Clam",
-        "Cobra",
-        "Cockroach",
-        "Cod",
-        "Cormorant",
-        "Coyote",
-        "Crab",
-        "Crane",
-        "Crocodile",
-        "Crow",
-        "Curlew",
-        "Deer",
-        "Dinosaur",
-        "Dog",
-        "Dogfish",
-        "Dolphin",
-        "Donkey",
-        "Dotterel",
-        "Dove",
-        "Dragonfly",
-        "Duck",
-        "Dugong",
-        "Dunlin",
-        "Eagle",
-        "Echidna",
-        "Eel",
-        "Eland",
-        "Elephant",
-        "Elk",
-        "Emu",
-        "Falcon",
-        "Ferret",
-        "Finch",
-        "Fish",
-        "Flamingo",
-        "Fly",
-        "Fox",
-        "Frog",
-        "Gaur",
-        "Gazelle",
-        "Gerbil",
-        "Giraffe",
-        "Gnat",
-        "Gnu",
-        "Goat",
-        "Goldfinch",
-        "Goldfish",
-        "Goose",
-        "Gorilla",
-        "Goshawk",
-        "Grasshopper",
-        "Grouse",
-        "Guanaco",
-        "Gull",
-        "Hamster",
-        "Hare",
-        "Hawk",
-        "Hedgehog",
-        "Heron",
-        "Herring",
-        "Hippopotamus",
-        "Hornet",
-        "Horse",
-        "Human",
-        "Hummingbird",
-        "Hyena",
-        "Ibex",
-        "Ibis",
-        "Jackal",
-        "Jaguar",
-        "Jay",
-        "Jellyfish",
-        "Kangaroo",
-        "Kingfisher",
-        "Koala",
-        "Kookabura",
-        "Kouprey",
-        "Kudu",
-        "Lapwing",
-        "Lark",
-        "Lemur",
-        "Leopard",
-        "Lion",
-        "Llama",
-        "Lobster",
-        "Locust",
-        "Loris",
-        "Louse",
-        "Lyrebird",
-        "Magpie",
-        "Mallard",
-        "Manatee",
-        "Mandrill",
-        "Mantis",
-        "Marten",
-        "Meerkat",
-        "Mink",
-        "Mole",
-        "Mongoose",
-        "Monkey",
-        "Moose",
-        "Mosquito",
-        "Mouse",
-        "Mule",
-        "Narwhal",
-        "Newt",
-        "Nightingale",
-        "Octopus",
-        "Okapi",
-        "Opossum",
-        "Oryx",
-        "Ostrich",
-        "Otter",
-        "Owl",
-        "Oyster",
-        "Panther",
-        "Parrot",
-        "Partridge",
-        "Peafowl",
-        "Pelican",
-        "Penguin",
-        "Pheasant",
-        "Pig",
-        "Pigeon",
-        "Pony",
-        "Porcupine",
-        "Porpoise",
-        "Quail",
-        "Quelea",
-        "Quetzal",
-        "Rabbit",
-        "Raccoon",
-        "Rail",
-        "Ram",
-        "Rat",
-        "Raven",
-        "Red deer",
-        "Red panda",
-        "Reindeer",
-        "Rhinoceros",
-        "Rook",
-        "Salamander",
-        "Salmon",
-        "Sand Dollar",
-        "Sandpiper",
-        "Sardine",
-        "Scorpion",
-        "Seahorse",
-        "Seal",
-        "Shark",
-        "Sheep",
-        "Shrew",
-        "Skunk",
-        "Snail",
-        "Snake",
-        "Sparrow",
-        "Spider",
-        "Spoonbill",
-        "Squid",
-        "Squirrel",
-        "Starling",
-        "Stingray",
-        "Stinkbug",
-        "Stork",
-        "Swallow",
-        "Swan",
-        "Tapir",
-        "Tarsier",
-        "Termite",
-        "Tiger",
-        "Toad",
-        "Trout",
-        "Turkey",
-        "Turtle",
-        "Viper",
-        "Vulture",
-        "Wallaby",
-        "Walrus",
-        "Wasp",
-        "Weasel",
-        "Whale",
-        "Wildcat",
-        "Wolf",
-        "Wolverine",
-        "Wombat",
-        "Woodcock",
-        "Woodpecker",
-        "Worm",
-        "Wren",
-        "Yak",
-        "Zebra",
+        { name: "Bat", price: "$93" },
+        { name: "Bear", price: "$103" },
+        { name: "Beaver", price: "$128" },
+        { name: "Bee", price: "$193" },
+        { name: "Bison", price: "$154" },
+        { name: "Boar", price: "$71" },
+        { name: "Buffalo", price: "$61" },
+        { name: "Butterfly", price: "$123" },
+        { name: "Camel", price: "$199" },
+        { name: "Capybara!", price: "$128" },
+        { name: "Caribou", price: "$179" },
+        { name: "Cassowary", price: "$113" },
+        { name: "Cat", price: "$136" },
+        { name: "Catterpillar", price: "$134" },
+        { name: "Cattle", price: "$68" },
+        { name: "Chamois", price: "$27" },
+        { name: "Cheetah", price: "$62" },
+        { name: "Chicken", price: "$159" },
+        { name: "Chimpanzee", price: "$121" },
+        { name: "Chinchilla", price: "$160" },
+        { name: "Chough", price: "$172" },
+        { name: "Clam", price: "$58" },
+        { name: "Cobra", price: "$38" },
+        { name: "Cockroach", price: "$71" },
+        { name: "Cod", price: "$139" },
+        { name: "Cormorant", price: "$27" },
+        { name: "Coyote", price: "$48" },
+        { name: "Crab", price: "$59" },
+        { name: "Crane", price: "$99" },
+        { name: "Crocodile", price: "$72" },
+        { name: "Crow", price: "$82" },
+        { name: "Curlew", price: "$129" },
+        { name: "Deer", price: "$66" },
+        { name: "Dinosaur", price: "$177" },
+        { name: "Dog", price: "$134" },
+        { name: "Dogfish", price: "$186" },
+        { name: "Dolphin", price: "$39" },
+        { name: "Donkey", price: "$108" },
+        { name: "Dotterel", price: "$160" },
+        { name: "Dove", price: "$149" },
+        { name: "Dragonfly", price: "$27" },
+        { name: "Duck", price: "$186" },
+        { name: "Dugong", price: "$184" },
+        { name: "Dunlin", price: "$56" },
+        { name: "Eagle", price: "$224" },
+        { name: "Knuckels the Echidna :)", price: "" },
+        { name: "Eel", price: "$89" },
+        { name: "Eland", price: "$118" },
+        { name: "Elephant", price: "$80" },
+        { name: "Elk", price: "$76" },
+        { name: "Emu", price: "$239" },
+        { name: "Falcon", price: "$131" },
+        { name: "Ferret", price: "$172" },
+        { name: "Finch", price: "$270" },
+        { name: "Fish", price: "$109" },
+        { name: "FLamingo", price: "$149" },
+        { name: "Fly", price: "$42" },
+        { name: "Fox", price: "$75" },
+        { name: "Frog", price: "$230" },
+        { name: "Gaur", price: "$159" },
+        { name: "Gazelle", price: "$57" },
+        { name: "Gerbil", price: "$248" },
+        { name: "Giraffe", price: "$40" },
+        { name: "Gnat", price: "$103" },
+        { name: "Gnu", price: "$68" },
+        { name: "Goat", price: "$247" },
+        { name: "Goldfinch", price: "$203" },
+        { name: "GOldfish", price: "$45" },
+        { name: "Goose", price: "$160" },
+        { name: "Gorilla", price: "$202" },
+        { name: "Goshawk", price: "$209" },
+        { name: "Grasshopper", price: "$269" },
+        { name: "Grouse", price: "$101" },
+        { name: "Guanaco", price: "$54" },
+        { name: "SEAgull", price: "$239" },
+        { name: "Hampter", price: "$95" },
+        { name: "Hare", price: "$179" },
+        { name: "Hawk", price: "$33" },
+        { name: "Sonic the Hedgehog", price: "" },
+        { name: "Heron", price: "$99" },
+        { name: "Herring", price: "$43" },
+        { name: "Hippopotamus", price: "$223" },
+        { name: "Hornet", price: "$97" },
+        { name: "Horse", price: "$253" },
+        { name: "Human??", price: "Um No" },
+        { name: "Hummingbird", price: "$49" },
+        { name: "Hyena", price: "$69" },
+        { name: "Ibex", price: "$176" },
+        { name: "Ibis", price: "$159" },
+        { name: "Jackal", price: "$161" },
+        { name: "Jaguar", price: "$30" },
+        { name: "Jay", price: "$126" },
+        { name: "Jellyfish", price: "$62" },
+        { name: "Kangaroo", price: "$35" },
+        { name: "Kingfisher", price: "$128" },
+        { name: "Koala", price: "$27" },
+        { name: "Kookabura", price: "$195" },
+        { name: "Kouprey", price: "$233" },
+        { name: "Kudu", price: "$203" },
+        { name: "Lapwing", price: "$79" },
+        { name: "Lark", price: "$71" },
+        { name: "Lemur", price: "$47" },
+        { name: "Leopard", price: "$215" },
+        { name: "Lion", price: "$204" },
+        { name: "Llama", price: "$64" },
+        { name: "Lobster", price: "$171" },
+        { name: "Locust", price: "$42" },
+        { name: "Loris", price: "$67" },
+        { name: "Louse", price: "$16" },
+        { name: "Lyrebird", price: "$66" },
+        { name: "Magpie", price: "$243" },
+        { name: "Mallard", price: "$215" },
+        { name: "Manatee", price: "$176" },
+        { name: "Mandrill", price: "$74" },
+        { name: "Mantis", price: "$81" },
+        { name: "Marten", price: "$44" },
+        { name: "Meerkat", price: "$32" },
+        { name: "Mink", price: "$146" },
+        { name: "Mole", price: "$73" },
+        { name: "Bagel the Mongoose", price: "RIP :(" },
+        { name: "Monkey", price: "$181" },
+        { name: "Moose", price: "$274" },
+        { name: "Mosquito", price: "$126" },
+        { name: "Mouse", price: "$112" },
+        { name: "Mule", price: "$40" },
+        { name: "Narwhal", price: "$262" },
+        { name: "Newt", price: "$202" },
+        { name: "Nightingale", price: "$48" },
+        { name: "Octopus", price: "$121" },
+        { name: "Okapi", price: "$270" },
+        { name: "Opossum", price: "$247" },
+        { name: "Oryx", price: "$258" },
+        { name: "Ostrich", price: "$188" },
+        { name: "Otter", price: "$266" },
+        { name: "Owl", price: "$177" },
+        { name: "Oyster", price: "$76 " },
+        { name: "Panther", price: "$288" },
+        { name: "Parrot", price: "$284" },
+        { name: "Partridge in a pear tree!", price: "Caroling" },
+        { name: "Peafowl", price: "$148" },
+        { name: "Pelican", price: "$158" },
+        { name: "Penguin", price: "$116" },
+        { name: "Pheasant", price: "$227" },
+        { name: "Pig", price: "$43" },
+        { name: "Pigeon", price: "$179" },
+        { name: "Pony", price: "$93" },
+        { name: "Porcupine", price: "$180" },
+        { name: "Porpoise", price: "$75" },
+        { name: "Quail", price: "$168" },
+        { name: "Quelea", price: "$102" },
+        { name: "Quetzal", price: "$249" },
+        { name: "Rabbit", price: "$84" },
+        { name: "Raccoon", price: "$139" },
+        { name: "Rail", price: "$237" },
+        { name: "Ram", price: "$147" },
+        { name: "Rat", price: "$98" },
+        { name: "Raven", price: "$129" },
+        { name: "Red deer", price: "$108" },
+        { name: "Red panda", price: "$210" },
+        { name: "Reindeer", price: "$171" },
+        { name: "Rhinoceres", price: "$83" },
+        { name: "Rook(Chess?)", price: "$178" },
+        { name: "Salamander", price: "$154" },
+        { name: "Salmon", price: "$213" },
+        { name: "Sand dollar", price: "$184" },
+        { name: "Sandpiper", price: "$82" },
+        { name: "Sardine", price: "$126" },
+        { name: "Scoprian", price: "$178" },
+        { name: "Seahorse", price: "$125" },
+        { name: "Spheel", price: "$310" },
+        { name: "Shark", price: "$44" },
+        { name: "Sheep", price: "$273" },
+        { name: "Shrew", price: "$238" },
+        { name: "Skunk", price: "$83" },
+        { name: "Snail", price: "$202" },
+        { name: "Snake", price: "$163" },
+        { name: "Sparrow", price: "$113" },
+        { name: "Spider", price: "$239" },
+        { name: "Spoonbill", price: "$170" },
+        { name: "Squid", price: "$39" },
+        { name: "Squirrel", price: "$43" },
+        { name: "Starling", price: "$138" },
+        { name: "Stingray", price: "$189" },
+        { name: "Stinkbug", price: "$256" },
+        { name: "Stork", price: "$37" },
+        { name: "Swallow", price: "$144" },
+        { name: "Swan", price: "$266" },
+        { name: "Tapir", price: "$42" },
+        { name: "Tarsier", price: "$100" },
+        { name: "Termite", price: "$160" },
+        { name: "Tiger", price: "$95" },
+        { name: "Toad", price: "$44" },
+        { name: "Trout", price: "$285" },
+        { name: "Turkey", price: "$59" },
+        { name: "Turtle", price: "$141" },
+        { name: "Viper", price: "$286" },
+        { name: "Vulture", price: "$156" },
+        { name: "Wallaby", price: "$66" },
+        { name: "Walrus", price: "$173" },
+        { name: "Wasp", price: "$151" },
+        { name: "Weasel", price: "$267" },
+        { name: "Whale", price: "$238" },
+        { name: "Wildcat", price: "$157" },
+        { name: "Wolf", price: "$57" },
+        { name: "Wolverine", price: "$65" },
+        { name: "Wombat", price: "$62" },
+        { name: "Woodcock???", price: "$86" },
+        { name: "Woodpecker", price: "$109" },
+        { name: "Worm", price: "$31" },
+        { name: "Wren", price: "$211" },
+        { name: "Yak", price: "$135" },
+        { name: "Zebra", price: "$54" },
       ],
       cart: [],
-      inCart: false,
+      inCart: true,
     };
   },
   methods: {
@@ -254,33 +255,26 @@ export default {
 
 <template>
   <div id="parent">
-    <sub id="shoppingCart">
-      <p class="itemCounter"># of items in Cart: {{ cart.length }}</p>
-      <button class="shoppingCartBtn" @click="display()">
-        <img
-          class="shoppingCartBtn"
-          src="https://www.models-resource.com/resources/big_icons/49/48807.png?updated=1666220257"
-          alt="Img of Nintedo E shop bag as a shopping cart"
-        />
-      </button>
-
-      <sub class="cartDisplay" v-for="items in cart" :key="items"
-        ><span v-if="inCart === true"
-          ><button class="removeItems" @click="removeItems(items)">
-            Remove Item</button
-          >{{ items.name }} {{ items.price }}</span
-        ><span v-else-if="inCart === false"></span
-      ></sub>
+    <cartButton @click="display()" />
+    <sub v-if="inCart === true">
+      <cart
+        v-for="items in cart"
+        :key="items"
+        :name="items.name"
+        :price="items.price"
+        @click="removeItems(items)"
+      />
     </sub>
-    <!-- --------------------------- -->
-
-    <!-- We can use  @click wit an if statement with JS to make the shopping cart work :D-->
-    <div id="container">
-      <sub v-for="animals in animalArray" :key="animals" class="child">
-        <span class="animals">{{ animals.name }} {{ animals.price }}</span>
-        <button @click="push(animals)">Add to Cart</button>
-      </sub>
-    </div>
+    <sub v-else></sub>
+    <sub id="container">
+      <create
+        @click="push(animals)"
+        v-for="animals in animalArray"
+        :key="animals.name"
+        :name="animals.name"
+        :price="animals.price"
+      />
+    </sub>
   </div>
 </template>
 
@@ -290,82 +284,10 @@ h1 {
   color: aliceblue;
 }
 
-.itemCounter {
-  font-size: 5rem;
-  color: aliceblue;
-}
-
-#parent {
-  display: flex;
-  flex-direction: row;
-}
-
-#shoppingCart {
-  display: flex;
-  flex-direction: column;
-  margin-right: 5rem;
-  margin-top: 2rem;
-}
-
-.shoppingCartBtn {
-  width: 20rem;
-  height: 20rem;
-  margin-right: 10rem;
-}
-
-.cartDisplay {
-  display: flex;
-  flex-direction: row;
-  /* --------------------------- */
-  font-size: 4rem;
-  margin-right: 1rem;
-  margin-top: 2rem;
-  /*  --------------------------- */
-  color: aliceblue;
-}
-
-.removeItems {
-  width: 10rem;
-  margin-right: 1rem;
-}
-
 #container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  /* --------------------------- */
-  width: 130rem;
-  margin-top: 2rem;
-}
-
-.child {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  /* --------------------------- */
-  margin-right: 10rem;
-  margin-top: 2rem;
-  width: 30rem;
-  border-radius: 1rem;
-  background-color: var(--siteBacco);
-}
-
-.animals {
-  display: flex;
-  justify-content: center;
-  /* --------------------------- */
-
-  font-size: 4rem;
-  margin: 2rem;
-  width: 25rem;
-  border-radius: 1rem;
-  /* --------------------------- */
-  border: solid var(--cardBorder) 0.5rem;
-  background-color: var(--cardColor);
-  color: black;
-}
-button {
-  font-size: 2rem;
+  width: 140rem;
 }
 </style>
